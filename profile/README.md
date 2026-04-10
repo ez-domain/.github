@@ -9,6 +9,8 @@
 [![macOS](https://img.shields.io/badge/macOS-arm64%20%7C%20amd64-black?logo=apple)](https://github.com/ez-domain/install/releases/latest)
 [![Linux](https://img.shields.io/badge/Linux-arm64%20%7C%20amd64-orange?logo=linux&logoColor=white)](https://github.com/ez-domain/install/releases/latest)
 [![Windows](https://img.shields.io/badge/Windows-x64-blue?logo=windows)](https://github.com/ez-domain/install/releases/latest)
+[![Latest Release](https://img.shields.io/github/v/release/ez-domain/install?label=latest&color=brightgreen)](https://github.com/ez-domain/install/releases/latest)
+[![Downloads](https://img.shields.io/github/downloads/ez-domain/install/total?label=downloads)](https://github.com/ez-domain/install/releases)
 
 </div>
 
@@ -66,6 +68,8 @@ For full installation instructions, version-specific installs, and scripted opti
 Open **[https://ezdomain.dev](https://ezdomain.dev)** after installation.
 
 <img src="https://raw.githubusercontent.com/ez-domain/images/main/screenshot/dashboard-1.png" width="700" alt="ezdomain dashboard"/>
+
+For all screenshots, visit the **[ez-domain/images](https://github.com/ez-domain/images/tree/main/screenshot)** repo.
 
 ### Aliases
 Add, edit, and delete domain → target mappings. Each alias shows a live ping badge indicating whether the target service is reachable.
