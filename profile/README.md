@@ -18,9 +18,9 @@
 
 ## What is ezdomain?
 
-ezdomain is a lightweight local domain manager that lets you access your development services through clean, memorable `.test` (or any TLD) domain names — served over **HTTPS with a fully trusted local certificate**.
+ezdomain is a lightweight local domain manager that lets you access your development services through clean, memorable `.test` (or any TLD) domain names, served over **HTTPS with a fully trusted local certificate**.
 
-No more `localhost:3000`. Just `myapp.test`.
+No more `localhost:3000`, just `myapp.test`.
 
 ```
 myapp.test         →  localhost:3000
@@ -29,6 +29,8 @@ dashboard.test     →  0.0.0.0:4000
 ```
 
 It runs as a background service on your machine, handles DNS resolution, manages a local certificate authority, and reverse-proxies all HTTPS traffic automatically.
+
+[![Watch the demo](https://img.shields.io/badge/YouTube-Watch%20Demo-red?logo=youtube)](https://youtu.be/jw6Z5H4halM)
 
 ---
 
@@ -59,7 +61,7 @@ It runs as a background service on your machine, handles DNS resolution, manages
 
 ## Installation
 
-For full installation instructions, version-specific installs, and scripted options — visit the **[ez-domain/install](https://github.com/ez-domain/install)** repo or download directly from the **[latest release](https://github.com/ez-domain/install/releases/latest)**.
+For full installation instructions, version-specific installs, and scripted options, visit the **[ez-domain/install](https://github.com/ez-domain/install)** repo or download directly from the **[latest release](https://github.com/ez-domain/install/releases/latest)**.
 
 ---
 
@@ -67,7 +69,9 @@ For full installation instructions, version-specific installs, and scripted opti
 
 Open **[https://ezdomain.dev](https://ezdomain.dev)** after installation.
 
-<img src="https://raw.githubusercontent.com/ez-domain/images/main/screenshot/dashboard-1.png" width="700" alt="ezdomain dashboard"/>
+| Aliases | Logs | DNS Setup |
+|:---:|:---:|:---:|
+| <img src="https://raw.githubusercontent.com/ez-domain/images/main/screenshots/Dashboard 1 - Alias Page.png" alt="Alias Page"/> | <img src="https://raw.githubusercontent.com/ez-domain/images/main/screenshots/Dashboard 4 - Logs.png" alt="Log Page"/> | <img src="https://raw.githubusercontent.com/ez-domain/images/main/screenshots/Dashboard 5 - DNS Setup.png" alt="Setup Page"/> |
 
 For all screenshots, visit the **[ez-domain/images](https://github.com/ez-domain/images/tree/main/screenshot)** repo.
 
@@ -78,7 +82,7 @@ Add, edit, and delete domain → target mappings. Each alias shows a live ping b
 Live log stream from the ezdomain service with level filtering and one-click export.
 
 ### Setup
-Instructions to point other devices on your LAN to your machine's DNS — so your custom domains work across your entire local network.
+Instructions to point other devices on your LAN to your machine's DNS, so your custom domains work across your entire local network.
 
 ---
 
