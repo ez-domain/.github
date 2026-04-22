@@ -37,7 +37,7 @@ It manages its own certificate authority and installs it into your system trust 
 - **Automatic HTTPS** — generates a name-constrained local CA, signs per-domain certificates, and installs it into your system trust store.
 - **DNS server** — resolves your custom domains on port 53 (LAN) and 5300 (local fallback), with upstream forwarding for everything else. Also works as a DNS-over-HTTPS resolver for Android devices.
 - **Reverse proxy** — forwards HTTPS traffic to any local IP:port target, including services that use self-signed certificates.
-- **Proxmox integration** `v0.5.0` — apply DNS and CA trust to all VMs and LXC containers directly from the dashboard, with an auto-apply watcher for new guests.
+- **Proxmox integration** `v0.5.0` — apply DNS and CA trust to all VMs and LXC containers directly from the dashboard, with an auto-apply watcher for new guests. Only available when ezdomain is installed on a Proxmox node.
 - **Web dashboard** — manage aliases, stream live logs, and configure other devices with one-command DNS setup scripts for macOS, Linux, and Windows.
 - **Real-time log viewer** — live log streaming with level filtering and export to `.txt`.
 - **Connectivity check** — ping badge on each alias shows whether the target is reachable.
@@ -72,6 +72,8 @@ Open **[https://ezdomain.dev](https://ezdomain.dev)** after installation.
 | Aliases | Logs | DNS Setup |
 |:---:|:---:|:---:|
 | <img src="https://raw.githubusercontent.com/ez-domain/images/main/screenshots/Dashboard 1 - Alias Page.png" alt="Alias Page"/> | <img src="https://raw.githubusercontent.com/ez-domain/images/main/screenshots/Dashboard 4 - Logs.png" alt="Log Page"/> | <img src="https://raw.githubusercontent.com/ez-domain/images/main/screenshots/Dashboard 5 - DNS Setup.png" alt="Setup Page"/> |
+| DNS Setup 2 | Proxmox DNS (v0.5.0 or above) | Settings |
+| <img src="https://raw.githubusercontent.com/ez-domain/images/main/screenshots/Dashboard 6 - DNS Setup 2.png" alt="Alias Page"/> | <img src="https://raw.githubusercontent.com/ez-domain/images/main/screenshots/Dashboard 8 - Proxmox DNS (Proxmox Integration).png" alt="Log Page"/> | <img src="https://raw.githubusercontent.com/ez-domain/images/main/screenshots/Dashboard 7 - Settings.png" alt="Setup Page"/> |
 
 For all screenshots, visit the **[ez-domain/images](https://github.com/ez-domain/images/tree/main/screenshots)** repo.
 
