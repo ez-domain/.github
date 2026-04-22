@@ -18,9 +18,7 @@
 
 ## What is ezdomain?
 
-ezdomain is a lightweight local domain manager that lets you access your development services through clean, memorable `.test` (or any TLD) domain names, served over **HTTPS with a fully trusted local certificate**.
-
-No more `localhost:3000`, just `myapp.test`.
+ezdomain is a background service that gives your local services real domain names and HTTPS. You point a name at a port, and it handles DNS, certificates, and proxying automatically.
 
 ```
 myapp.test         →  localhost:3000
@@ -28,7 +26,7 @@ api.test           →  192.168.1.10:8080
 dashboard.test     →  0.0.0.0:4000
 ```
 
-It runs as a background service on your machine, handles DNS resolution, manages a local certificate authority, and reverse-proxies all HTTPS traffic automatically.
+It manages its own certificate authority and installs it into your system trust store, so browsers treat the certs as valid without any manual steps.
 
 [![Watch the demo](https://img.shields.io/badge/YouTube-Watch%20Demo-red?logo=youtube)](https://youtu.be/jw6Z5H4halM)
 
@@ -36,13 +34,15 @@ It runs as a background service on your machine, handles DNS resolution, manages
 
 ## Features
 
-- **Automatic HTTPS** — generates a local CA, signs per-domain certificates, and installs it into your system trust store. No browser warnings.
-- **DNS server** — resolves your custom domains on port 53 (LAN) and 5300 (local fallback), with upstream forwarding for everything else.
-- **Reverse proxy** — forwards HTTPS traffic to any local IP:port target.
-- **Web dashboard** — manage aliases, stream live logs, and get DNS setup instructions for other devices on your network.
-- **Real-time log viewer** — live log streaming with level filtering (INFO / WARN / ERROR / DEBUG) and export to `.txt`.
+- **Automatic HTTPS** — generates a name-constrained local CA, signs per-domain certificates, and installs it into your system trust store.
+- **DNS server** — resolves your custom domains on port 53 (LAN) and 5300 (local fallback), with upstream forwarding for everything else. Also works as a DNS-over-HTTPS resolver for Android devices.
+- **Reverse proxy** — forwards HTTPS traffic to any local IP:port target, including services that use self-signed certificates.
+- **Proxmox integration** `v0.5.0` — apply DNS and CA trust to all VMs and LXC containers directly from the dashboard, with an auto-apply watcher for new guests.
+- **Web dashboard** — manage aliases, stream live logs, and configure other devices with one-command DNS setup scripts for macOS, Linux, and Windows.
+- **Real-time log viewer** — live log streaming with level filtering and export to `.txt`.
 - **Connectivity check** — ping badge on each alias shows whether the target is reachable.
-- **Runs as a system service** — starts on boot, managed by the OS service manager (launchd / systemd / Windows SCM).
+- **In-app updates** `v0.3.0` — update to the latest version directly from the dashboard, no terminal required.
+- **Runs as a system service** — starts on boot, managed by the OS service manager.
 - **Single binary** — the entire app (UI included) is embedded in one self-contained executable.
 
 ---
@@ -73,7 +73,7 @@ Open **[https://ezdomain.dev](https://ezdomain.dev)** after installation.
 |:---:|:---:|:---:|
 | <img src="https://raw.githubusercontent.com/ez-domain/images/main/screenshots/Dashboard 1 - Alias Page.png" alt="Alias Page"/> | <img src="https://raw.githubusercontent.com/ez-domain/images/main/screenshots/Dashboard 4 - Logs.png" alt="Log Page"/> | <img src="https://raw.githubusercontent.com/ez-domain/images/main/screenshots/Dashboard 5 - DNS Setup.png" alt="Setup Page"/> |
 
-For all screenshots, visit the **[ez-domain/images](https://github.com/ez-domain/images/tree/main/screenshot)** repo.
+For all screenshots, visit the **[ez-domain/images](https://github.com/ez-domain/images/tree/main/screenshots)** repo.
 
 ### Aliases
 Add, edit, and delete domain → target mappings. Each alias shows a live ping badge indicating whether the target service is reachable.
@@ -81,8 +81,11 @@ Add, edit, and delete domain → target mappings. Each alias shows a live ping b
 ### Logs
 Live log stream from the ezdomain service with level filtering and one-click export.
 
-### Setup
-Instructions to point other devices on your LAN to your machine's DNS, so your custom domains work across your entire local network.
+### DNS Setup
+One-command scripts for macOS, Linux, and Windows — served directly from the dashboard with your host IP pre-filled. Each script auto-detects the network configuration, sets DNS, installs and refreshes the CA certificate, and flushes the cache. A rollback script is provided for each OS.
+
+### Settings
+Configure the HTTP listener port (default: `90`). The listener hot-swaps to the new port immediately on save with no service restart. Port 443 for HTTPS is fixed.
 
 ---
 
